@@ -1,0 +1,56 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+  - url: 'http://localhost:8080'
+    description: Generated server url
+paths:
+  /Traffic Violation/dmnresult:
+    post:
+      tags:
+        - traffic-_32-violation-resource
+      operationId: dmn_dmnresult
+      requestBody:
+        description: DMN input
+        content:
+          application/json:
+            schema:
+              $ref: '/dmnDefinitions.json#/definitions/InputSet'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+  /Traffic Violation:
+    get:
+      tags:
+        - traffic-_32-violation-resource
+      operationId: dmn_1
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: string
+    post:
+      tags:
+        - traffic-_32-violation-resource
+      operationId: dmn
+      requestBody:
+        description: DMN input
+        content:
+          application/json:
+            schema:
+              $ref: '/dmnDefinitions.json#/definitions/InputSet'
+      responses:
+        default:
+          description: DMN output
+          content:
+            application/json:
+              schema:
+                $ref: '/dmnDefinitions.json#/definitions/OutputSet'
+components: {}
